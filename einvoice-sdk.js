@@ -239,8 +239,8 @@ function getCertificatesHashedParams(documentJson) {
   const sha256Hash = crypto.createHash('sha256').update(minifiedJsonData, 'utf8').digest('base64');
   const docDigest = sha256Hash;
 
-  const privateKeyPath = path.join(__dirname, 'eInvoiceCertificates', 'private_amast_keyless.key');
-  const certificatePath = path.join(__dirname, 'eInvoiceCertificates', 'amast_cert.crt');
+  const privateKeyPath = path.join(__dirname, 'eInvoiceCertificates', process.env.PRIVATE_KEY_FILE_PATH);
+  const certificatePath = path.join(__dirname, 'eInvoiceCertificates', process.env.PRIVATE_CERT_FILE_PATH);
 
   const privateKeyPem = fs.readFileSync(privateKeyPath, 'utf8');
   const certificatePem = fs.readFileSync(certificatePath, 'utf8'); 

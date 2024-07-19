@@ -18,9 +18,33 @@ npm install
 
 ## Usage
 -Create a .env file in the root directory and add your configuration variables:
+```bash
+CLIENT_ID_VALUE=your-client-id
+CLIENT_SECRET_1_VALUE=your-client-secret
+PREPROD_BASE_URL=your-preprod-base-url
+X509Certificate_VALUE=your-x509-certificate
+X509SubjectName_VALUE=your-x509-subject-name
+X509IssuerName_VALUE=your-x509-issuer-name
+X509SerialNumber_VALUE=your-x509-serial-number
+PRIVATE_KEY_FILE_PATH=example.key
+PRIVATE_CERT_FILE_PATH=exampleCert.crt
+```
 
 ```bash
 const { getTokenAsTaxPayer, submitDocumentAsIntermediary } = require('./path-to-your-sdk');
+
+# Note: You may refer getCertificatesHashedParams() on how to generate hashed signed documents.
+# let hashed_payload = {
+#     "documents": [
+#          {
+#             "format": "JSON",
+#             "documentHash": <sha256_encoded_signed_documents>,
+#             "codeNumber": "",
+#             "document": <base64_encoded_signed_documents>
+#         } 
+        
+#     ]
+# }
 
 async function exampleUsage() {
   try {
