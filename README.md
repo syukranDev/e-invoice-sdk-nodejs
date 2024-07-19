@@ -6,7 +6,7 @@ A Node.js SDK for interacting with e-invoice APIs using JSON format data, includ
 
 Provides a set of functions to cater to the following needs. You may still need to plan the flow based on your business requirements:
 - Obtain tokens as a taxpayer or intermediary
-- Submit documents as an intermediary
+- Submit documents
 - Get document details
 - Cancel valid documents by supplier
 - Utility functions for JSON to Base64 conversion, SHA256 hash calculation, and generating certificate hashed parameters
