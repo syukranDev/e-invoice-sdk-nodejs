@@ -20,7 +20,7 @@ let httpOptions = {
         scope: 'InvoicingAPI'
 }
 
-async function getTokenAsTaxPayer(tenant_id) {
+async function getTokenAsTaxPayer() {
   try {
 
     const response = await axios.post(`${process.env.PREPROD_BASE_URL}/connect/token`, httpOptions, {
@@ -57,8 +57,6 @@ async function getTokenAsTaxPayer(tenant_id) {
 
 async function getTokenAsIntermediary() {
   try {
-    let config = await getClientConfig(tenant_id);
-
     const response = await axios.post(`${process.env.PREPROD_BASE_UR}/connect/token`, httpOptions, {
       headers: {
         'onbehalfof':config.configDetails.tin,
