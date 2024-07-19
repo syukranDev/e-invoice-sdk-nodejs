@@ -1,6 +1,6 @@
 # einvoice-sdk-nodejs
 
-A Node.js SDK for interacting with e-invoice APIs, including obtaining tokens, submitting documents, and managing e-invoice data.
+A Node.js SDK for interacting with e-invoice APIs using JSON format data, including obtaining tokens, submitting documents, and managing e-invoice data.
 
 ## Features
 
@@ -32,7 +32,7 @@ PRIVATE_CERT_FILE_PATH=exampleCert.crt
 ```
 
 ```bash
-const { getTokenAsTaxPayer, submitDocumentAsIntermediary } = require('./path-to-your-sdk');
+const { getTokenAsTaxPayer, submitDocumentAsIntermediary } = require('./einvoice-sdk.js');
 
 # Note: You may refer getCertificatesHashedParams() on how to generate hashed signed documents.
 # let hashed_payload = {
