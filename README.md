@@ -18,6 +18,16 @@ npm install
 
 ## Usage
 -Create a .env file in the root directory and add your configuration variables:
+```bash
+CLIENT_ID_VALUE=your-client-id
+CLIENT_SECRET_1_VALUE=your-client-secret
+PREPROD_BASE_URL=your-preprod-base-url
+X509Certificate_VALUE=your-x509-certificate
+X509SubjectName_VALUE=your-x509-subject-name
+X509IssuerName_VALUE=your-x509-issuer-name
+X509SerialNumber_VALUE=your-x509-serial-number
+
+```
 
 ```bash
 const { getTokenAsTaxPayer, submitDocumentAsIntermediary } = require('./path-to-your-sdk');
