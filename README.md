@@ -1,6 +1,6 @@
 # einvoice-sdk-nodejs
 
-A Node.js SDK for interacting with e-invoice APIs using JSON format data, including obtaining tokens, submitting documents, and managing e-invoice data.
+A Node.js SDK for interacting with e-invoice LHDN @ IRB MALAYSIA APIs using JSON format data, including obtaining tokens, submitting documents, and managing e-invoice data.
 
 ## Features
 
