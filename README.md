@@ -9,6 +9,7 @@ A Node.js SDK for interacting with e-invoice APIs, including obtaining tokens, s
 - Get document details
 - Cancel valid documents by supplier
 - Utility functions for JSON to Base64 conversion, SHA256 hash calculation, and generating certificate hashed parameters
+- Auto API recall if it hit API Rate Limit
 
 ## Installation
 
