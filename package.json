@@ -1,0 +1,36 @@
+{
+  "name": "einvoice-sdk-nodejs",
+  "version": "1.0.0",
+  "main": "einvoice-sdk.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Syukran Soleh",
+  "license": "ISC",
+  "description": "A Node.js SDK for e-invoicing.",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.4.5",
+    "fs": "^0.0.1-security",
+    "jsonminify": "^0.4.2",
+    "node-forge": "^1.3.1",
+    "path": "^0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syukranDev/einvoice-sdk-nodejs"
+  },
+  "bugs": {
+    "url": "https://github.com/syukranDev/einvoice-sdk-nodejs/issues"
+  },
+  "homepage": "https://github.com/syukranDev/einvoice-sdk-nodejs",
+  "keywords": ["e-invoice", "sdk", "nodejs", "open-source"],
+  "contributors": [
+    {
+      "name": "Syukran Soleh",
+      "email": "m.syukransoleh@gmail.com"
+    }
+  ]
+}
