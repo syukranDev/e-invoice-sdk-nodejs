@@ -1,6 +1,6 @@
 {
   "name": "einvoice-sdk-nodejs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "einvoice-sdk.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,7 +26,17 @@
     "url": "https://github.com/syukranDev/einvoice-sdk-nodejs/issues"
   },
   "homepage": "https://github.com/syukranDev/einvoice-sdk-nodejs",
-  "keywords": ["e-invoice", "sdk", "nodejs", "open-source", "lhdn", "irb", "malaysia", "invois", "e-invois"],
+  "keywords": [
+    "e-invoice",
+    "sdk",
+    "nodejs",
+    "open-source",
+    "lhdn",
+    "irb",
+    "malaysia",
+    "invois",
+    "e-invois"
+  ],
   "contributors": [
     {
       "name": "Syukran Soleh",
