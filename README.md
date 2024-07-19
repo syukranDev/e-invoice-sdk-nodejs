@@ -4,12 +4,13 @@ A Node.js SDK for interacting with e-invoice APIs using JSON format data, includ
 
 ## Features
 
+Provides a set of functions to cater to the following needs. You may still need to plan the flow based on your business requirements:
 - Obtain tokens as a taxpayer or intermediary
 - Submit documents as an intermediary
 - Get document details
 - Cancel valid documents by supplier
 - Utility functions for JSON to Base64 conversion, SHA256 hash calculation, and generating certificate hashed parameters
-- Auto API recall if it hit API Rate Limit
+- Automatic API recall in case of hitting the API rate limit
 
 ## Installation
 
@@ -18,7 +19,7 @@ npm install
 ```
 
 ## Usage
--Create a .env file in the root directory and add your configuration variables:
+Create a .env file in the root directory and add your configuration variables:
 ```bash
 CLIENT_ID_VALUE=your-client-id
 CLIENT_SECRET_1_VALUE=your-client-secret
@@ -61,5 +62,7 @@ exampleUsage();
 ```
 
 ## Contributing / License
--This project is licensed under the ISC License.
+Author: Syukran Soleh <br>
+This project is open-source and licensed under the ISC License. Contributions are welcome—please follow the guidelines for contributions and feel free to submit issues or pull requests.
+
 
