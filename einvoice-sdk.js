@@ -299,12 +299,12 @@ function getCertificatesHashedParams(documentJson) {
                         {
                           "X509IssuerName": [
                             {
-                              "_": "C=MY, O=Raffcomm Technologies Sdn Bhd, OU=1000449-W, CN=CypherSign Pro Max"
+                              "_": process.env.X509IssuerName_VALUE
                             }
                           ],
                           "X509SerialNumber": [
                             {
-                              "_": "528542416703086034"
+                              "_": process.env.X509SerialNumber_VALUE
                             }
                           ]
                         }
