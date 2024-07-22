@@ -86,7 +86,7 @@ async function getTokenAsIntermediary() {
   }
 }
 
-async function submitDocumentAsIntermediary(docs, token) {
+async function submitDocument(docs, token) {
     try {
         const payload = {
             documents: docs
@@ -116,7 +116,7 @@ async function submitDocumentAsIntermediary(docs, token) {
 
             if (waitTime > 0) {
                 await new Promise(resolve => setTimeout(resolve, waitTime));
-                return await submitDocumentAsIntermediary(docs, token)
+                return await submitDocument(docs, token)
             }            
             }
         }
@@ -574,7 +574,7 @@ module.exports = {
     testIRBCall,
     getTokenAsTaxPayer,
     getTokenAsIntermediary,
-    submitDocumentAsIntermediary,
+    submitDocument,
     cancelValidDocumentBySupplier,
     getDocumentDetails,
     jsonToBase64,

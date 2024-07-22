@@ -12,12 +12,6 @@ Provides a set of functions to cater to the following needs. You may still need 
 - Utility functions for JSON to Base64 conversion, SHA256 hash calculation, and generating certificate hashed parameters
 - Automatic API recall in case of hitting the API rate limit
 
-## Installation
-
-```bash
-npm install
-```
-
 ## Usage
 Create a .env file in the root directory and add your configuration variables:
 ```bash
@@ -33,7 +27,7 @@ PRIVATE_CERT_FILE_PATH=exampleCert.crt
 ```
 
 ```bash
-const { getTokenAsTaxPayer, submitDocumentAsIntermediary } = require('./einvoice-sdk.js');
+const { getTokenAsTaxPayer, submitDocument } = require('./einvoice-sdk.js');
 
 # Note: You may refer getCertificatesHashedParams() on how to generate hashed signed documents.
 # let hashed_payload = {
@@ -48,17 +42,17 @@ const { getTokenAsTaxPayer, submitDocumentAsIntermediary } = require('./einvoice
 #     ]
 # }
 
-async function exampleUsage() {
+async function exampleUsage(hashed_payload) {
   try {
     const token = await getTokenAsTaxPayer();
-    const documentSubmissionResponse = await submitDocumentAsIntermediary(hashed_payload, token.access_token);
+    const documentSubmissionResponse = await submitDocument(hashed_payload, token.access_token);
     console.log(documentSubmissionResponse);
   } catch (error) {
     console.error(error);
   }
 }
 
-exampleUsage();
+exampleUsage(hashed_payload);
 ```
 
 ## Contributing / License
