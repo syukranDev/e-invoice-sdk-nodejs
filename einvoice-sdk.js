@@ -53,7 +53,7 @@ async function getTokenAsTaxPayer() {
 
 async function getTokenAsIntermediary() {
   try {
-    const response = await axios.post(`${process.env.PREPROD_BASE_UR}/connect/token`, httpOptions, {
+    const response = await axios.post(`${process.env.PREPROD_BASE_URL}/connect/token`, httpOptions, {
       headers: {
         'onbehalfof':config.configDetails.tin,
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -92,7 +92,7 @@ async function submitDocumentAsIntermediary(docs, token) {
             documents: docs
         };
         
-        const response = await axios.post(`${process.env.PREPROD_BASE_UR}/api/v1.0/documentsubmissions`, payload, {
+        const response = await axios.post(`${process.env.PREPROD_BASE_URL}/api/v1.0/documentsubmissions`, payload, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
@@ -135,7 +135,7 @@ async function submitDocumentAsIntermediary(docs, token) {
 
 async function getDocumentDetails(irb_uuid, token) {
   try {
-          const response = await axios.get(`${process.env.PREPROD_BASE_UR}/api/v1.0/documents/${irb_uuid}/details`, {
+          const response = await axios.get(`${process.env.PREPROD_BASE_URL}/api/v1.0/documents/${irb_uuid}/details`, {
               headers: {
                   // 'Content-Type': 'application/json',
                   'Authorization': `Bearer ${token}`
@@ -177,7 +177,7 @@ async function cancelValidDocumentBySupplier(irb_uuid, cancellation_reason, toke
   }
 
   try {
-    const response = await axios.put(`${process.env.PREPROD_BASE_UR}/api/v1.0/documents/state/${irb_uuid}/state`,
+    const response = await axios.put(`${process.env.PREPROD_BASE_URL}/api/v1.0/documents/state/${irb_uuid}/state`,
       payload, 
       {
         headers: {
@@ -537,7 +537,7 @@ function getCertificatesHashedParams(documentJson) {
 
 async function testIRBCall(data) {
   try {
-    const response = await axios.post(`${process.env.PREPROD_BASE_UR}/connect/token`, httpOptions, {
+    const response = await axios.post(`${process.env.PREPROD_BASE_URL}/connect/token`, httpOptions, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
