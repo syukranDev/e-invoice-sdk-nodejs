@@ -27,32 +27,29 @@ PRIVATE_CERT_FILE_PATH=exampleCert.crt
 ```
 
 ```bash
-const { getTokenAsTaxPayer, submitDocument } = require('./einvoice-sdk.js');
+const einvois = require('./einvoice-sdk.js');
 
 # Note: You may refer getCertificatesHashedParams() on how to generate hashed signed documents.
-# let hashed_payload = {
-#     "documents": [
-#          {
-#             "format": "JSON",
-#             "documentHash": <sha256_encoded_signed_documents>,
-#             "codeNumber": "",
-#             "document": <base64_encoded_signed_documents>
-#         } 
+let hashed_payload = {
+    "documents": [
+         {
+            "format": "JSON",
+            "documentHash": <sha256_encoded_signed_documents>,
+            "codeNumber": "",
+            "document": <base64_encoded_signed_documents>
+        } 
         
-#     ]
-# }
-
-async function exampleUsage(hashed_payload) {
-  try {
-    const token = await getTokenAsTaxPayer();
-    const documentSubmissionResponse = await submitDocument(hashed_payload, token.access_token);
-    console.log(documentSubmissionResponse);
-  } catch (error) {
-    console.error(error);
-  }
+    ]
 }
 
-exampleUsage(hashed_payload);
+try {
+  const token = await einvois.getTokenAsTaxPayer();
+  const documentSubmissionResponse = await einvois.submitDocument(hashed_payload.documents, token.access_token);
+  console.log(documentSubmissionResponse);
+} catch (error) {
+  console.error(error);
+}
+
 ```
 
 ## Contributing / License

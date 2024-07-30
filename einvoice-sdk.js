@@ -569,8 +569,54 @@ async function testIRBCall(data) {
   }
 }
 
+async function validateCustomerTin(tin, idType, idValue, token) {
+  try {
+    if (!['NRIC', 'BRN', 'PASSPORT', 'ARMY'].includes(idType)) {
+      throw new Error(`Invalid ID type. Only 'NRIC', 'BRN', 'PASSPORT', 'ARMY' are allowed`);
+    }
+
+    const response = await axios.get(`${process.env.PREPROD_BASE_URL}/api/v1.0/taxpayer/validate/${tin}?idType=${idType}&idValue=${idValue}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    if (response.status === 200) {
+      return { status: 'success' };
+    }
+  } catch (err) {
+    if (err.response) {
+      if (err.response.status === 429) {
+        console.log('Current iteration hitting Rate Limit 429 of LHDN Validate TIN API, retrying...');
+        const rateLimitReset = err.response.headers["x-rate-limit-reset"];
+
+        if (rateLimitReset) {
+          const resetTime = new Date(rateLimitReset).getTime();
+          const currentTime = Date.now();
+          const waitTime = resetTime - currentTime;
+
+          if (waitTime > 0) {
+            console.log('=======================================================================================');
+            console.log('              LHDN Validate TIN API hitting rate limit HTTP 429                        ');
+            console.log(`              Refetching................. (Waiting time: ${waitTime} ms)               `);
+            console.log('=======================================================================================');
+            await new Promise(resolve => setTimeout(resolve, waitTime));
+            return await validateCustomerTin(tin, idType, idValue, token);
+          }
+        }
+      } else if (err.response.status === 404) {
+        throw new Error('Invalid TIN');
+      } else {
+        throw new Error(`Failed to validate TIN: ${err.response.statusText}`);
+      }
+    } else {
+      throw new Error(`Failed to validate TIN: ${err.message}`);
+    }
+  }
+}
+
 module.exports = { 
-    getClientConfig,
+    validateCustomerTin,
     testIRBCall,
     getTokenAsTaxPayer,
     getTokenAsIntermediary,
