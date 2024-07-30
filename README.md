@@ -6,10 +6,11 @@ A Node.js SDK for interacting with e-invoice LHDN @ IRB MALAYSIA APIs using JSON
 
 Provides a set of functions to cater to the following needs. You may still need to plan the flow based on your business requirements:
 - Obtain tokens as a taxpayer or intermediary
+- Validate TIN using different ID type
 - Submit documents
 - Get document details
 - Cancel valid documents by supplier
-- Utility functions for JSON to Base64 conversion, SHA256 hash calculation, and generating certificate hashed parameters
+- Utility functions for JSON to Base64 conversion, SHA256 hash calculation, and generating certificate hashed parameters and hashed documents
 - Automatic API recall in case of hitting the API rate limit
 
 ## Usage
@@ -30,17 +31,17 @@ PRIVATE_CERT_FILE_PATH=exampleCert.crt
 const einvois = require('./einvoice-sdk.js');
 
 # Note: You may refer getCertificatesHashedParams() on how to generate hashed signed documents.
-let hashed_payload = {
-    "documents": [
-         {
-            "format": "JSON",
-            "documentHash": <sha256_encoded_signed_documents>,
-            "codeNumber": "",
-            "document": <base64_encoded_signed_documents>
-        } 
+# let hashed_payload = {
+#     "documents": [
+#          {
+#             "format": "JSON",
+#             "documentHash": <sha256_encoded_signed_documents>,
+#             "codeNumber": <assign accordingly>,
+#             "document": <base64_encoded_signed_documents>
+#         } 
         
-    ]
-}
+#     ]
+# }
 
 try {
   const token = await einvois.getTokenAsTaxPayer();
